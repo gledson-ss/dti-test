@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "dti-test",
+    "slug": "dti-test",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "dti-test"
+}
