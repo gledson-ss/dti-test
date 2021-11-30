@@ -1,33 +1,46 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface resposeMoviesProps {
+interface moviesProps {
   id: number;
   Title: string;
   Poster: string;
   Year: number;
-  imdbRating: number;
+  averageRating: number;
+  imdbID: string;
   type: string;
 }
 
 const initialState = {
-  list: [] as resposeMoviesProps[],
-  movieSelected: "",
+  list: [] as moviesProps[],
+  movieSelected: {
+    averageRating: 0,
+    imdbID: "",
+  },
 };
 
 const MovieSlice = createSlice({
   name: "MovieList",
   initialState,
   reducers: {
-    addItemsList: (state, value: PayloadAction<resposeMoviesProps[]>) => {
+    addItemsList: (state, value: PayloadAction<moviesProps[]>) => {
       return (state = {
         list: value.payload,
         movieSelected: state.movieSelected,
       });
     },
-    movieSelected: (state, value: PayloadAction<string>) =>
+    movieSelected: (
+      state,
+      value: PayloadAction<{
+        averageRating: number;
+        imdbID: string;
+      }>
+    ) =>
       (state = {
         list: state.list,
-        movieSelected: value.payload,
+        movieSelected: {
+          averageRating: value.payload.averageRating,
+          imdbID: value.payload.imdbID,
+        },
       }),
   },
 });
