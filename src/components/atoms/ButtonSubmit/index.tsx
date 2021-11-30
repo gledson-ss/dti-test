@@ -16,7 +16,8 @@ interface resposeMoviesProps {
   Title: string;
   Poster: string;
   Year: number;
-  imdbRating: number;
+  averageRating: number;
+  imdbID: string;
   type: string;
 }
 
@@ -31,23 +32,36 @@ const ButtonSubmit: React.FC = () => {
     (state) => state
   ) as inputReduxProps;
 
-  const listMovie = useSelector<movieListProps>(
-    (state) => state
-  ) as movieListProps;
   const dispatch = useDispatch();
 
-  async function getRating(title: string) {
-    const rating = await api.get("", {
+  async function getRating(imdbID: string) {
+    const response = await api.get("", {
       params: {
-        t: title,
+        i: imdbID,
       },
     });
+    const rating = response.data.Ratings as [{ Value: string }];
 
-    const response = rating.data.imdbRating;
-    return response;
+    var size = 0;
+    var sum = rating.reduce((current, item, index) => {
+      var num = Number(item.Value.split(/\D/g)[0]);
+      if (index === 0) {
+        num = num * 10;
+      }
+      size += 1;
+      return current + num;
+    }, 0);
+
+    var average = (sum / size).toFixed(0);
+    return average;
   }
 
   async function getMovies() {
+    if (searchInput.inputValues.name.length === 0) {
+      dispatch(addItemsList([]));
+      return;
+    }
+
     try {
       const res = await api.get("", {
         params: {
@@ -56,17 +70,17 @@ const ButtonSubmit: React.FC = () => {
         },
       });
       const movieArray: resposeMoviesProps[] = res.data.Search;
-
       let newArray: resposeMoviesProps[] = [];
-      movieArray.forEach(async (item, index) => {
-        const rat = await getRating(item.Title);
 
-        const newIndex = {
+      movieArray.forEach(async (item, index) => {
+        const average = await getRating(item.imdbID);
+
+        const newItem = {
           ...movieArray[index],
-          imdbRating: Number(rat),
+          averageRating: Number(average),
           id: index,
         };
-        newArray = [...newArray, newIndex];
+        newArray = [...newArray, newItem];
         dispatch(addItemsList(newArray));
       });
     } catch {
