@@ -3,7 +3,4 @@ import config from "../../config";
 
 export const api = axios.create({
   baseURL: `https://www.omdbapi.com/?apikey=57b8c249`,
-  params: {
-    
-  }
 });
