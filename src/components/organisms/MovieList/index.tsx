@@ -4,25 +4,26 @@ import MovieCard from "../../molecules/MovieCard";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemsList } from "../../../context/MovieListSlice";
 
-interface MoviesProps {
+interface moviesProps {
   id: number;
   Title: string;
   Poster: string;
   Year: number;
-  imdbRating: number;
+  averageRating: number;
+  imdbID: string;
   type: string;
 }
 
 interface stateProps {
   movieValues: {
-    list: MoviesProps[];
+    list: moviesProps[];
     movieSelected: "";
   };
 }
 
 const MovieList: React.FC = () => {
   const moviesRedux = useSelector<stateProps>((state) => state) as stateProps;
-  const [movies, setMovies] = useState<MoviesProps[]>([]);
+  const [movies, setMovies] = useState<moviesProps[]>([]);
 
   useEffect(() => {
     setMovies([...moviesRedux.movieValues.list]);
@@ -35,8 +36,9 @@ const MovieList: React.FC = () => {
           <MovieCard
             key={item.id}
             title={item.Title}
-            rating={item.imdbRating}
+            averageRating={item.averageRating}
             img={item.Poster}
+            imdbID={item.imdbID}
           />
         );
       })}
