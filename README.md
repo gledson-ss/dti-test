@@ -40,7 +40,7 @@
 
 ## :clipboard: Description
 
-- Um App Mobile desenvolvido com React Native, que tem como objetivo listar os 10 primeiros filmes retornados na pesquisa, no qual a entrada é por meio de título e ano do filme, porém o ano é opcional. Além disso o usuário tem a opção de ordenar a lista de filmes por nome ou média de rating (nota de avaliações), de forma decrescente ou crescente. E por fim, o usuário pode clicar em um dos itens retornados da pesquisa que o levará para uma segunda tela com informações mais detalhadas sobre o filme escolhido.
+- Um App Mobile desenvolvido com React Native, que tem como objetivo listar os 10 primeiros filmes retornados na pesquisa, no qual a entrada é por meio de título e ano do filme, porém o ano é opcional. Além disso o usuário tem a opção de ordenar a lista de filmes por nome ou média de rating (nota de avaliações), de forma decrescente ou crescente. E por fim, o usuário pode clicar em um dos itens retornados da pesquisa que o levará para uma segunda tela com informações mais detalhadas sobre o filme escolhido. O arquivo .apk para download encontra-se na descrição desse repositório.
 
 ## :rocket: Getting Started
 
