@@ -3,9 +3,16 @@
     "name": "dti-test",
     "slug": "dti-test",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"],
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash_screen.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "android": {
+      "package": "com.gledson.dev"
+    }
   },
   "name": "dti-test"
 }
