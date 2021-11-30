@@ -99,7 +99,7 @@ npm run web
 - [React Redux](https://react-redux.js.org/)
   - Ferramenta exigida pelo desafio para armazenar os contextos da aplicação, porém existe outras alternativas que também satisfaz esse aspecto, como o proprio context api do react ou o zustand.
 - [Styled Components](https://styled-components.com/)
-  - framework muito bom para criação de componentes, pois é bastante flexível e possui muitas ferramentas.
+  - Framework muito bom para criação de componentes, pois é bastante flexível e possui muitas ferramentas.
 - [Axios](https://axios-http.com/docs/intro)
   - Ferramenta que satisfaz o a necessidade de requisições da aplicação.
 - [Typescript](https://www.typescriptlang.org/)
@@ -116,6 +116,11 @@ npm run web
   - Ferramenta que expõe uma API para utilizar os hooks do git utilizando o package.json e assim, pode ser versionado e validar os commits.
 - [commitlint](https://commitizen-tools.github.io/commitizen/)
   - Ferramenta para manter um padrão e versionamento automatico dos commits.
+
+### 🖌️ Development Methodology
+
+- [atomic design](https://bradfrost.com/blog/post/atomic-web-design/)
+  - Método para manter a estrutura de componetização do projeto mais organizado e padronizado.
 
 ## :memo: License
 
