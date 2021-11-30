@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
   border: 1px solid #000000;
   border-radius: 4px;
   margin: 0 25px;
@@ -14,10 +14,13 @@ export const Image = styled.Image`
   height: 300px;
 `;
 
-export const Title = styled.Text`
+export const Text = styled.Text`
   font-size: 20px;
 `;
 
 export const InfoContainer = styled.View`
+  display: flex;
+  justify-content: space-between;
   width: 100%;
+  padding: 20px;
 `;
